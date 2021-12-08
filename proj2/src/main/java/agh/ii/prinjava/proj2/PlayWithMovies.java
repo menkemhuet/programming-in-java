@@ -18,11 +18,11 @@ interface PlayWithMovies {
      */
     static List<String> ex01(String director) {
         final Optional<List<Movie>> my_movies = ImdbTop250.movies();
-        List<String> movie_director = my_movies.orElseThrow().stream()
+        return my_movies.orElseThrow().stream()
                 .filter(movie -> movie.directors().contains(director))
                 .map(Movie::title)
                 .collect(Collectors.toList());
-        return movie_director;
+
     }
 
     /**
